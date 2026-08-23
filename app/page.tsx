@@ -5,43 +5,50 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // ============================================================
-// ICON IMPORTS - All from lucide-react
+// ICON IMPORTS - All from react-icons (verified working)
 // ============================================================
+import { 
+  FiZap,           
+  FiMonitor,       
+  FiCpu,           
+  FiUsers,         
+  FiAward,         
+  FiClock,         
+  FiServer,        
+  FiHeadphones,    
+  FiMapPin,        
+  FiMail,          
+  FiPhone,         
+  FiMenu,          
+  FiX,             
+  FiArrowRight,    
+  FiChevronRight,  
+  FiCalendar,      
+  FiUser,          
+  FiSend,          
+  FiCheck,         
+  FiPackage,       
+  FiLayers,        
+  FiHeart,         
+  FiCrosshair,     
+  FiCamera,        
+  FiSettings,      
+  FiHexagon,       
+  FiHelpCircle,    
+
+} from "react-icons/fi";
+
+// Game icons from Simple Icons
 import {
-  Zap,
-  Monitor,
-  Cpu,
-  Users,
-  Trophy,
-  Star,
-  Award,
-  Clock,
-  Server,
-  Headphones,
-  MapPin,
-  Mail,
-  Phone,
-  Menu,
-  X,
-  ArrowRight,
-  ChevronRight,
-  Calendar,
-  User,
-  Send,
-  Check,
-  Package,
-  Layers,
-  Heart,
-  Crosshair,
-  Camera,
-  Settings,
-  Hexagon,
-  HelpCircle,
-  Gamepad2,
-  Target,
-  Crown,
-  Shield
-} from "lucide-react";
+  SiValorant,
+  SiCounterstrike,
+  SiFortnite,
+  SiLeagueoflegends,
+  SiDota2,
+} from "react-icons/si";
+
+// Trophy from Game Icons
+import { GiTrophy } from "react-icons/gi";
 
 // ============================================================
 // MAIN COMPONENT
@@ -51,7 +58,6 @@ export default function KaizenGaming() {
   const [selectedPackage, setSelectedPackage] = useState("solo");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // ========== SCROLL TRACKING ==========
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -60,7 +66,6 @@ export default function KaizenGaming() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Package data for booking
   const packages = {
     solo: { name: "Solo Session", price: "$25", duration: "1 Hour", features: ["Private Pod", "RTX 4090", "240Hz Display"] },
     team: { name: "Team Booth", price: "$80", duration: "2 Hours", features: ["5 Players", "Team Comms", "Private Space"] },
@@ -68,7 +73,6 @@ export default function KaizenGaming() {
     vip: { name: "VIP Package", price: "$300", duration: "Full Day", features: ["All Access", "Premium Support", "Refreshments"] },
   };
 
-  // ========== RIG DATA WITH REAL IMAGES ==========
   const rigs = [
     {
       name: "The Silent",
@@ -112,31 +116,11 @@ export default function KaizenGaming() {
     },
   ];
 
-  // ========== TOURNAMENT DATA WITH ICONS ==========
-  const tournaments = [
-    { icon: Gamepad2, name: "Valorant Championship", prize: "$10,000", date: "Aug 30, 2026", slots: "12/16" },
-    { icon: Target, name: "CS2 Pro League", prize: "$15,000", date: "Sep 5, 2026", slots: "8/16" },
-    { icon: Star, name: "Fortnite Cup", prize: "$8,000", date: "Sep 12, 2026", slots: "15/20" },
-    { icon: Crown, name: "League of Legends", prize: "$12,000", date: "Sep 20, 2026", slots: "5/10" },
-    { icon: Shield, name: "Dota 2 Invitational", prize: "$20,000", date: "Sep 28, 2026", slots: "3/8" },
-    { icon: Zap, name: "Apex Legends Showdown", prize: "$7,000", date: "Oct 5, 2026", slots: "10/20" },
-  ];
-
-  // ========== PARTNER DATA ==========
-  const partners = [
-    { name: "NVIDIA", icon: "◈" },
-    { name: "Intel", icon: "✦" },
-    { name: "Logitech", icon: "♢" },
-    { name: "Razer", icon: "◆" },
-    { name: "ASUS", icon: "◈" },
-    { name: "Corsair", icon: "✦" },
-  ];
-
   return (
     <div className="min-h-screen bg-[#faf8f5] text-[#1a1a1a] font-sans overflow-x-hidden">
       
       {/* ==========================================================
-          HEADER / NAVIGATION
+          HEADER
           ========================================================== */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -146,7 +130,6 @@ export default function KaizenGaming() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 border-2 border-black/20 rounded-full flex items-center justify-center font-serif text-lg group-hover:border-black/40 transition">
               𓃥
@@ -154,18 +137,8 @@ export default function KaizenGaming() {
             <span className="text-xl font-light tracking-[0.3em] uppercase">KAIZEN</span>
           </a>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {[
-              "Home",
-              "Services",
-              "Rigs",
-              "Tournaments",
-              "Community",
-              "Testimonials",
-              "FAQ",
-              "Contact",
-            ].map((item) => (
+            {["Home", "Services", "Rigs", "Tournaments", "Community", "Testimonials", "FAQ", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -177,7 +150,6 @@ export default function KaizenGaming() {
             ))}
           </nav>
 
-          {/* Right Side - CTA Buttons */}
           <div className="flex items-center gap-4">
             <button className="hidden md:block px-5 py-2 text-sm font-light text-black/50 hover:text-black transition-colors">
               Sign In
@@ -185,38 +157,22 @@ export default function KaizenGaming() {
             <button className="px-6 py-2.5 rounded-full bg-black text-white text-sm font-light tracking-wider hover:bg-black/80 transition-all duration-300 hover:scale-95">
               Join Now
             </button>
-            
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5"
             >
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <div
           className={`lg:hidden fixed top-[73px] left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-black/5 transition-all duration-500 ${
             isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
           <div className="p-6 space-y-4">
-            {[
-              "Home",
-              "Services",
-              "Rigs",
-              "Tournaments",
-              "Community",
-              "Testimonials",
-              "FAQ",
-              "Contact",
-            ].map((item) => (
+            {["Home", "Services", "Rigs", "Tournaments", "Community", "Testimonials", "FAQ", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -257,31 +213,31 @@ export default function KaizenGaming() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <button className="group px-8 py-4 bg-black text-white rounded-full hover:bg-black/80 transition flex items-center gap-2">
                   Book Now
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
+                  <FiArrowRight className="group-hover:translate-x-1 transition" />
                 </button>
                 <button className="px-8 py-4 border border-black/10 rounded-full hover:bg-black/5 transition">
                   Learn More
                 </button>
               </div>
               <div className="mt-8 flex gap-8">
-                <div><div className="text-2xl font-light">500+</div><div className="text-xs text-black/40"><Users className="inline w-4 h-4 mr-1" /> Members</div></div>
-                <div><div className="text-2xl font-light">50+</div><div className="text-xs text-black/40"><Trophy className="inline w-4 h-4 mr-1" /> Tournaments</div></div>
-                <div><div className="text-2xl font-light">100+</div><div className="text-xs text-black/40"><Award className="inline w-4 h-4 mr-1" /> Pro Players</div></div>
+                <div><div className="text-2xl font-light">500+</div><div className="text-xs text-black/40"><FiUsers className="inline mr-1" /> Members</div></div>
+                <div><div className="text-2xl font-light">50+</div><div className="text-xs text-black/40"><GiTrophy className="inline mr-1" /> Tournaments</div></div>
+                <div><div className="text-2xl font-light">100+</div><div className="text-xs text-black/40"><FiAward className="inline mr-1" /> Pro Players</div></div>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-4/3 rounded-3xl bg-linear-to-br from-amber-100/50 to-rose-100/50 flex items-center justify-center relative overflow-hidden">
-                <Hexagon className="w-32 h-32 text-black/5" />
+                <FiHexagon className="text-9xl text-black/5" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-white/60 to-transparent">
                   <div className="text-sm font-light">Premium Gaming Sanctuary</div>
                   <div className="text-xs text-black/40">Minimalist. Luxurious. Focused.</div>
                 </div>
               </div>
               <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full border border-black/5 bg-white/50 backdrop-blur-sm flex items-center justify-center animate-float">
-                <Zap className="w-8 h-8 text-black/40" />
+                <FiZap className="w-8 h-8 text-black/40" />
               </div>
               <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full border border-black/5 bg-white/50 backdrop-blur-sm flex items-center justify-center animate-float-delayed">
-                <Crosshair className="w-6 h-6 text-black/40" />
+                <FiCrosshair className="w-6 h-6 text-black/40" />
               </div>
             </div>
           </div>
@@ -306,9 +262,9 @@ export default function KaizenGaming() {
           </p>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
-              { icon: Layers, title: "Clarity", desc: "Minimalist environments that sharpen your mind" },
-              { icon: Cpu, title: "Precision", desc: "Top-tier hardware tuned to perfection" },
-              { icon: Heart, title: "Tranquility", desc: "A space where you can truly perform" },
+              { icon: FiLayers, title: "Clarity", desc: "Minimalist environments that sharpen your mind" },
+              { icon: FiCpu, title: "Precision", desc: "Top-tier hardware tuned to perfection" },
+              { icon: FiHeart, title: "Tranquility", desc: "A space where you can truly perform" },
             ].map((item) => {
               const Icon = item.icon;
               return (
@@ -333,12 +289,12 @@ export default function KaizenGaming() {
           </h2>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { icon: Zap, value: "10Gb/s", label: "Fiber Speed" },
-              { icon: Monitor, value: "240Hz", label: "Refresh Rate" },
-              { icon: Cpu, value: "RTX 4090", label: "GPU Power" },
-              { icon: Crosshair, value: "0.5ms", label: "Input Lag" },
-              { icon: Trophy, value: "24/7", label: "Tournaments" },
-              { icon: Award, value: "100+", label: "Pro Players" },
+              { icon: FiZap, value: "10Gb/s", label: "Fiber Speed" },
+              { icon: FiMonitor, value: "240Hz", label: "Refresh Rate" },
+              { icon: FiCpu, value: "RTX 4090", label: "GPU Power" },
+              { icon: FiCrosshair, value: "0.5ms", label: "Input Lag" },
+              { icon: GiTrophy, value: "24/7", label: "Tournaments" },
+              { icon: FiAward, value: "100+", label: "Pro Players" },
             ].map((stat) => {
               const Icon = stat.icon;
               return (
@@ -364,10 +320,10 @@ export default function KaizenGaming() {
           <p className="mt-2 text-center text-black/50">Everything you need for the ultimate gaming session</p>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Zap, title: "Pro Hardware", desc: "RTX 4090, Ryzen 9, 64GB RAM", price: "From $25/hr" },
-              { icon: Headphones, title: "Sound Pods", desc: "Fully soundproofed private booths", price: "From $40/hr" },
-              { icon: Trophy, title: "Tournaments", desc: "Pro competition stages", price: "From $150/event" },
-              { icon: Camera, title: "Streaming", desc: "Green screen & 4K cameras", price: "From $60/hr" },
+              { icon: FiZap, title: "Pro Hardware", desc: "RTX 4090, Ryzen 9, 64GB RAM", price: "From $25/hr" },
+              { icon: FiHeadphones, title: "Sound Pods", desc: "Fully soundproofed private booths", price: "From $40/hr" },
+              { icon: GiTrophy, title: "Tournaments", desc: "Pro competition stages", price: "From $150/event" },
+              { icon: FiCamera, title: "Streaming", desc: "Green screen & 4K cameras", price: "From $60/hr" },
             ].map((service) => {
               const Icon = service.icon;
               return (
@@ -384,7 +340,7 @@ export default function KaizenGaming() {
       </section>
 
       {/* ==========================================================
-          SECTION 5: RIGS - WITH REAL IMAGES
+          SECTION 5: RIGS
           ========================================================== */}
       <section id="rigs" className="py-20 px-6 bg-white/30 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
@@ -398,7 +354,6 @@ export default function KaizenGaming() {
                 key={rig.name} 
                 className="group bg-white/50 rounded-2xl overflow-hidden border border-black/5 hover:border-black/10 transition-all duration-500 hover:-translate-y-3 hover:shadow-xl"
               >
-                {/* Image Container */}
                 <div className={`relative h-52 bg-linear-to-br ${rig.color} overflow-hidden`}>
                   <Image
                     src={rig.image}
@@ -415,8 +370,6 @@ export default function KaizenGaming() {
                     <h3 className="text-xl font-light text-white drop-shadow-lg">{rig.name}</h3>
                   </div>
                 </div>
-
-                {/* Specs */}
                 <div className="p-5">
                   <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
                     <div>
@@ -437,7 +390,7 @@ export default function KaizenGaming() {
                     </div>
                   </div>
                   <button className="mt-4 w-full py-2.5 rounded-full bg-black/5 text-sm font-light hover:bg-black/10 transition-colors flex items-center justify-center gap-2">
-                    <Package className="w-4 h-4" />
+                    <FiPackage className="w-4 h-4" />
                     Book This Rig
                   </button>
                 </div>
@@ -457,10 +410,10 @@ export default function KaizenGaming() {
           </h2>
           <div className="mt-12 grid md:grid-cols-2 gap-6">
             {[
-              { icon: Server, title: "Fiber Network", desc: "10Gb/s enterprise-grade internet", detail: "<10ms ping to all servers" },
-              { icon: Monitor, title: "Display Tech", desc: "240Hz OLED with 0.5ms response", detail: "G-Sync Ultimate" },
-              { icon: Headphones, title: "Audio System", desc: "Dolby Atmos surround sound", detail: "Noise-cancelling headsets" },
-              { icon: Settings, title: "Smart Lighting", desc: "Adaptive RGB lighting", detail: "Custom profiles per player" },
+              { icon: FiServer, title: "Fiber Network", desc: "10Gb/s enterprise-grade internet", detail: "<10ms ping to all servers" },
+              { icon: FiMonitor, title: "Display Tech", desc: "240Hz OLED with 0.5ms response", detail: "G-Sync Ultimate" },
+              { icon: FiHeadphones, title: "Audio System", desc: "Dolby Atmos surround sound", detail: "Noise-cancelling headsets" },
+              { icon: FiSettings, title: "Smart Lighting", desc: "Adaptive RGB lighting", detail: "Custom profiles per player" },
             ].map((tech) => {
               const Icon = tech.icon;
               return (
@@ -489,7 +442,13 @@ export default function KaizenGaming() {
             Upcoming <span className="bg-linear-to-r from-amber-600 to-rose-400 bg-clip-text text-transparent">Tournaments</span>
           </h2>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tournaments.map((tournament) => {
+            {[
+              { icon: SiValorant, name: "Valorant Championship", prize: "$10,000", date: "Aug 30, 2026", slots: "12/16" },
+              { icon: SiCounterstrike, name: "CS2 Pro League", prize: "$15,000", date: "Sep 5, 2026", slots: "8/16" },
+              { icon: SiFortnite, name: "Fortnite Cup", prize: "$8,000", date: "Sep 12, 2026", slots: "15/20" },
+              { icon: SiLeagueoflegends, name: "League of Legends", prize: "$12,000", date: "Sep 20, 2026", slots: "5/10" },
+              { icon: SiDota2, name: "Dota 2 Invitational", prize: "$20,000", date: "Sep 28, 2026", slots: "3/8" },
+            ].map((tournament) => {
               const Icon = tournament.icon;
               return (
                 <div key={tournament.name} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition hover:-translate-y-1">
@@ -506,7 +465,7 @@ export default function KaizenGaming() {
                   <div className="mt-4 flex justify-between text-sm">
                     <span className="text-black/40">{tournament.slots} slots</span>
                     <button className="px-4 py-1 rounded-full border border-black/10 text-xs hover:bg-black/5 transition flex items-center gap-1">
-                      Register <ChevronRight className="w-3 h-3" />
+                      Register <FiChevronRight className="w-3 h-3" />
                     </button>
                   </div>
                 </div>
@@ -582,10 +541,10 @@ export default function KaizenGaming() {
             Our <span className="bg-linear-to-r from-amber-600 to-rose-400 bg-clip-text text-transparent">Partners</span>
           </h2>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {partners.map((partner) => (
-              <div key={partner.name} className="p-6 bg-white/50 rounded-2xl border border-black/5 text-center hover:bg-white transition">
-                <div className="text-4xl text-black/10">{partner.icon}</div>
-                <div className="mt-3 text-sm font-light text-black/40">{partner.name}</div>
+            {["NVIDIA", "Intel", "Logitech", "Razer", "ASUS", "Corsair"].map((partner) => (
+              <div key={partner} className="p-6 bg-white/50 rounded-2xl border border-black/5 text-center hover:bg-white transition">
+                <div className="text-4xl text-black/10">◈</div>
+                <div className="mt-3 text-sm font-light text-black/40">{partner}</div>
               </div>
             ))}
           </div>
@@ -610,7 +569,7 @@ export default function KaizenGaming() {
                   selectedPackage === key ? "bg-black text-white" : "bg-black/5 hover:bg-black/10"
                 }`}
               >
-                <Package className="w-4 h-4" />
+                <FiPackage className="w-4 h-4" />
                 {pkg.name}
               </button>
             ))}
@@ -621,13 +580,13 @@ export default function KaizenGaming() {
               <div>
                 <div className="text-xl font-light">{packages[selectedPackage as keyof typeof packages].name}</div>
                 <div className="text-sm text-black/40 flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
+                  <FiClock className="w-4 h-4" />
                   {packages[selectedPackage as keyof typeof packages].duration}
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {packages[selectedPackage as keyof typeof packages].features.map((feature) => (
                     <span key={feature} className="px-3 py-1 rounded-full bg-white/50 text-xs flex items-center gap-1">
-                      <Check className="w-3 h-3" />
+                      <FiCheck className="w-3 h-3" />
                       {feature}
                     </span>
                   ))}
@@ -640,24 +599,24 @@ export default function KaizenGaming() {
           <form className="mt-6 grid gap-4">
             <div className="grid md:grid-cols-2 gap-4">
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+                <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
                 <input type="text" placeholder="Full Name" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
               </div>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+                <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
                 <input type="email" placeholder="Email" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
               </div>
             </div>
             <div className="relative">
-              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+              <FiPhone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
               <input type="tel" placeholder="Phone Number" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
             </div>
             <div className="relative">
-              <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+              <FiCalendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
               <input type="date" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
             </div>
             <button type="submit" className="p-4 rounded-xl bg-black text-white hover:bg-black/80 transition flex items-center justify-center gap-2">
-              <Send className="w-5 h-5" />
+              <FiSend className="w-5 h-5" />
               Secure Your Space
             </button>
           </form>
@@ -682,7 +641,7 @@ export default function KaizenGaming() {
             ].map((faq) => (
               <div key={faq.q} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition">
                 <h3 className="font-light flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5 text-black/30" />
+                  <FiHelpCircle className="w-5 h-5 text-black/30" />
                   {faq.q}
                 </h3>
                 <p className="mt-1 text-sm text-black/40 pl-7">{faq.a}</p>
@@ -705,15 +664,15 @@ export default function KaizenGaming() {
               <p className="mt-4 text-black/50">Have questions? Were here to help.</p>
               <div className="mt-8 space-y-3 text-sm text-black/50">
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-black/30" />
+                  <FiMail className="w-5 h-5 text-black/30" />
                   hello@kaizen.gg
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-black/30" />
+                  <FiPhone className="w-5 h-5 text-black/30" />
                   +1 (555) 123-4567
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-black/30" />
+                  <FiMapPin className="w-5 h-5 text-black/30" />
                   123 Calm Street, Metropolis
                 </div>
               </div>
@@ -724,7 +683,7 @@ export default function KaizenGaming() {
                 <input type="email" placeholder="Email" className="p-3 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
                 <textarea placeholder="Message" rows={3} className="p-3 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
                 <button type="submit" className="p-3 rounded-xl bg-black text-white hover:bg-black/80 transition flex items-center justify-center gap-2">
-                  <Send className="w-4 h-4" />
+                  <FiSend className="w-4 h-4" />
                   Send Message
                 </button>
               </form>

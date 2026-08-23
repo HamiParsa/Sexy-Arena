@@ -5,53 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // ============================================================
-// ICON IMPORTS - All from react-icons (verified working)
-// ============================================================
-import { 
-  FiZap,           
-  FiMonitor,       
-  FiCpu,           
-  FiUsers,         
-  FiAward,         
-  FiClock,         
-  FiServer,        
-  FiHeadphones,    
-  FiMapPin,        
-  FiMail,          
-  FiPhone,         
-  FiMenu,          
-  FiX,             
-  FiArrowRight,    
-  FiChevronRight,  
-  FiCalendar,      
-  FiUser,          
-  FiSend,          
-  FiCheck,         
-  FiPackage,       
-  FiLayers,        
-  FiHeart,         
-  FiCrosshair,     
-  FiCamera,        
-  FiSettings,      
-  FiHexagon,       
-  FiHelpCircle,    
-
-} from "react-icons/fi";
-
-// Game icons from Simple Icons
-import {
-  SiValorant,
-  SiCounterstrike,
-  SiFortnite,
-  SiLeagueoflegends,
-  SiDota2,
-} from "react-icons/si";
-
-// Trophy from Game Icons
-import { GiTrophy } from "react-icons/gi";
-
-// ============================================================
-// MAIN COMPONENT
+// MAIN COMPONENT - No external icon libraries needed! 🎯
 // ============================================================
 export default function KaizenGaming() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -159,9 +113,9 @@ export default function KaizenGaming() {
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5"
+              className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 text-2xl"
             >
-              {isMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+              {isMenuOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>
@@ -213,31 +167,31 @@ export default function KaizenGaming() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <button className="group px-8 py-4 bg-black text-white rounded-full hover:bg-black/80 transition flex items-center gap-2">
                   Book Now
-                  <FiArrowRight className="group-hover:translate-x-1 transition" />
+                  <span className="group-hover:translate-x-1 transition">→</span>
                 </button>
                 <button className="px-8 py-4 border border-black/10 rounded-full hover:bg-black/5 transition">
                   Learn More
                 </button>
               </div>
               <div className="mt-8 flex gap-8">
-                <div><div className="text-2xl font-light">500+</div><div className="text-xs text-black/40"><FiUsers className="inline mr-1" /> Members</div></div>
-                <div><div className="text-2xl font-light">50+</div><div className="text-xs text-black/40"><GiTrophy className="inline mr-1" /> Tournaments</div></div>
-                <div><div className="text-2xl font-light">100+</div><div className="text-xs text-black/40"><FiAward className="inline mr-1" /> Pro Players</div></div>
+                <div><div className="text-2xl font-light">500+</div><div className="text-xs text-black/40">👥 Members</div></div>
+                <div><div className="text-2xl font-light">50+</div><div className="text-xs text-black/40">🏆 Tournaments</div></div>
+                <div><div className="text-2xl font-light">100+</div><div className="text-xs text-black/40">👑 Pro Players</div></div>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-4/3 rounded-3xl bg-linear-to-br from-amber-100/50 to-rose-100/50 flex items-center justify-center relative overflow-hidden">
-                <FiHexagon className="text-9xl text-black/5" />
+                <span className="text-9xl text-black/5">◈</span>
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-white/60 to-transparent">
                   <div className="text-sm font-light">Premium Gaming Sanctuary</div>
                   <div className="text-xs text-black/40">Minimalist. Luxurious. Focused.</div>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full border border-black/5 bg-white/50 backdrop-blur-sm flex items-center justify-center animate-float">
-                <FiZap className="w-8 h-8 text-black/40" />
+              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full border border-black/5 bg-white/50 backdrop-blur-sm flex items-center justify-center animate-float text-3xl">
+                ⚡
               </div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full border border-black/5 bg-white/50 backdrop-blur-sm flex items-center justify-center animate-float-delayed">
-                <FiCrosshair className="w-6 h-6 text-black/40" />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full border border-black/5 bg-white/50 backdrop-blur-sm flex items-center justify-center animate-float-delayed text-2xl">
+                🎯
               </div>
             </div>
           </div>
@@ -262,19 +216,16 @@ export default function KaizenGaming() {
           </p>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
-              { icon: FiLayers, title: "Clarity", desc: "Minimalist environments that sharpen your mind" },
-              { icon: FiCpu, title: "Precision", desc: "Top-tier hardware tuned to perfection" },
-              { icon: FiHeart, title: "Tranquility", desc: "A space where you can truly perform" },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.title} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white/80 transition">
-                  <Icon className="w-8 h-8 text-black/30 mx-auto" />
-                  <div className="mt-3 text-xl font-light">{item.title}</div>
-                  <div className="mt-2 text-sm text-black/40">{item.desc}</div>
-                </div>
-              );
-            })}
+              { icon: "📚", title: "Clarity", desc: "Minimalist environments that sharpen your mind" },
+              { icon: "💻", title: "Precision", desc: "Top-tier hardware tuned to perfection" },
+              { icon: "❤️", title: "Tranquility", desc: "A space where you can truly perform" },
+            ].map((item) => (
+              <div key={item.title} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white/80 transition">
+                <div className="text-4xl mx-auto">{item.icon}</div>
+                <div className="mt-3 text-xl font-light">{item.title}</div>
+                <div className="mt-2 text-sm text-black/40">{item.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -289,22 +240,19 @@ export default function KaizenGaming() {
           </h2>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { icon: FiZap, value: "10Gb/s", label: "Fiber Speed" },
-              { icon: FiMonitor, value: "240Hz", label: "Refresh Rate" },
-              { icon: FiCpu, value: "RTX 4090", label: "GPU Power" },
-              { icon: FiCrosshair, value: "0.5ms", label: "Input Lag" },
-              { icon: GiTrophy, value: "24/7", label: "Tournaments" },
-              { icon: FiAward, value: "100+", label: "Pro Players" },
-            ].map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <div key={stat.label} className="text-center p-4 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition">
-                  <Icon className="w-8 h-8 mx-auto text-black/40" />
-                  <div className="mt-2 text-xl font-light">{stat.value}</div>
-                  <div className="text-xs text-black/40">{stat.label}</div>
-                </div>
-              );
-            })}
+              { icon: "⚡", value: "10Gb/s", label: "Fiber Speed" },
+              { icon: "🖥️", value: "240Hz", label: "Refresh Rate" },
+              { icon: "💻", value: "RTX 4090", label: "GPU Power" },
+              { icon: "🎯", value: "0.5ms", label: "Input Lag" },
+              { icon: "🏆", value: "24/7", label: "Tournaments" },
+              { icon: "👑", value: "100+", label: "Pro Players" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center p-4 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition">
+                <div className="text-3xl">{stat.icon}</div>
+                <div className="mt-2 text-xl font-light">{stat.value}</div>
+                <div className="text-xs text-black/40">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -320,21 +268,18 @@ export default function KaizenGaming() {
           <p className="mt-2 text-center text-black/50">Everything you need for the ultimate gaming session</p>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: FiZap, title: "Pro Hardware", desc: "RTX 4090, Ryzen 9, 64GB RAM", price: "From $25/hr" },
-              { icon: FiHeadphones, title: "Sound Pods", desc: "Fully soundproofed private booths", price: "From $40/hr" },
-              { icon: GiTrophy, title: "Tournaments", desc: "Pro competition stages", price: "From $150/event" },
-              { icon: FiCamera, title: "Streaming", desc: "Green screen & 4K cameras", price: "From $60/hr" },
-            ].map((service) => {
-              const Icon = service.icon;
-              return (
-                <div key={service.title} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition hover:-translate-y-1">
-                  <Icon className="w-10 h-10 text-black/30" />
-                  <h3 className="mt-3 text-lg font-light">{service.title}</h3>
-                  <p className="text-sm text-black/40">{service.desc}</p>
-                  <div className="mt-3 text-sm font-light text-amber-600">{service.price}</div>
-                </div>
-              );
-            })}
+              { icon: "⚡", title: "Pro Hardware", desc: "RTX 4090, Ryzen 9, 64GB RAM", price: "From $25/hr" },
+              { icon: "🎧", title: "Sound Pods", desc: "Fully soundproofed private booths", price: "From $40/hr" },
+              { icon: "🏆", title: "Tournaments", desc: "Pro competition stages", price: "From $150/event" },
+              { icon: "📷", title: "Streaming", desc: "Green screen & 4K cameras", price: "From $60/hr" },
+            ].map((service) => (
+              <div key={service.title} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition hover:-translate-y-1">
+                <div className="text-4xl">{service.icon}</div>
+                <h3 className="mt-3 text-lg font-light">{service.title}</h3>
+                <p className="text-sm text-black/40">{service.desc}</p>
+                <div className="mt-3 text-sm font-light text-amber-600">{service.price}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -390,7 +335,7 @@ export default function KaizenGaming() {
                     </div>
                   </div>
                   <button className="mt-4 w-full py-2.5 rounded-full bg-black/5 text-sm font-light hover:bg-black/10 transition-colors flex items-center justify-center gap-2">
-                    <FiPackage className="w-4 h-4" />
+                    <span>📦</span>
                     Book This Rig
                   </button>
                 </div>
@@ -410,25 +355,22 @@ export default function KaizenGaming() {
           </h2>
           <div className="mt-12 grid md:grid-cols-2 gap-6">
             {[
-              { icon: FiServer, title: "Fiber Network", desc: "10Gb/s enterprise-grade internet", detail: "<10ms ping to all servers" },
-              { icon: FiMonitor, title: "Display Tech", desc: "240Hz OLED with 0.5ms response", detail: "G-Sync Ultimate" },
-              { icon: FiHeadphones, title: "Audio System", desc: "Dolby Atmos surround sound", detail: "Noise-cancelling headsets" },
-              { icon: FiSettings, title: "Smart Lighting", desc: "Adaptive RGB lighting", detail: "Custom profiles per player" },
-            ].map((tech) => {
-              const Icon = tech.icon;
-              return (
-                <div key={tech.title} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition">
-                  <div className="flex gap-4">
-                    <Icon className="w-8 h-8 text-black/30 shrink-0" />
-                    <div>
-                      <h3 className="font-light">{tech.title}</h3>
-                      <p className="text-sm text-black/50">{tech.desc}</p>
-                      <div className="mt-1 text-xs text-black/30">{tech.detail}</div>
-                    </div>
+              { icon: "🌐", title: "Fiber Network", desc: "10Gb/s enterprise-grade internet", detail: "<10ms ping to all servers" },
+              { icon: "🖥️", title: "Display Tech", desc: "240Hz OLED with 0.5ms response", detail: "G-Sync Ultimate" },
+              { icon: "🎧", title: "Audio System", desc: "Dolby Atmos surround sound", detail: "Noise-cancelling headsets" },
+              { icon: "⚙️", title: "Smart Lighting", desc: "Adaptive RGB lighting", detail: "Custom profiles per player" },
+            ].map((tech) => (
+              <div key={tech.title} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition">
+                <div className="flex gap-4">
+                  <div className="text-3xl">{tech.icon}</div>
+                  <div>
+                    <h3 className="font-light">{tech.title}</h3>
+                    <p className="text-sm text-black/50">{tech.desc}</p>
+                    <div className="mt-1 text-xs text-black/30">{tech.detail}</div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -443,34 +385,31 @@ export default function KaizenGaming() {
           </h2>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: SiValorant, name: "Valorant Championship", prize: "$10,000", date: "Aug 30, 2026", slots: "12/16" },
-              { icon: SiCounterstrike, name: "CS2 Pro League", prize: "$15,000", date: "Sep 5, 2026", slots: "8/16" },
-              { icon: SiFortnite, name: "Fortnite Cup", prize: "$8,000", date: "Sep 12, 2026", slots: "15/20" },
-              { icon: SiLeagueoflegends, name: "League of Legends", prize: "$12,000", date: "Sep 20, 2026", slots: "5/10" },
-              { icon: SiDota2, name: "Dota 2 Invitational", prize: "$20,000", date: "Sep 28, 2026", slots: "3/8" },
-            ].map((tournament) => {
-              const Icon = tournament.icon;
-              return (
-                <div key={tournament.name} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition hover:-translate-y-1">
-                  <div className="flex justify-between">
-                    <div className="flex items-center gap-3">
-                      <Icon className="w-5 h-5 text-black/30" />
-                      <div>
-                        <h3 className="font-light">{tournament.name}</h3>
-                        <div className="text-sm text-black/40">{tournament.date}</div>
-                      </div>
+              { icon: "🎮", name: "Valorant Championship", prize: "$10,000", date: "Aug 30, 2026", slots: "12/16" },
+              { icon: "🔫", name: "CS2 Pro League", prize: "$15,000", date: "Sep 5, 2026", slots: "8/16" },
+              { icon: "🏗️", name: "Fortnite Cup", prize: "$8,000", date: "Sep 12, 2026", slots: "15/20" },
+              { icon: "⚔️", name: "League of Legends", prize: "$12,000", date: "Sep 20, 2026", slots: "5/10" },
+              { icon: "🗡️", name: "Dota 2 Invitational", prize: "$20,000", date: "Sep 28, 2026", slots: "3/8" },
+            ].map((tournament) => (
+              <div key={tournament.name} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition hover:-translate-y-1">
+                <div className="flex justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{tournament.icon}</span>
+                    <div>
+                      <h3 className="font-light">{tournament.name}</h3>
+                      <div className="text-sm text-black/40">{tournament.date}</div>
                     </div>
-                    <div className="text-sm font-light text-amber-600">{tournament.prize}</div>
                   </div>
-                  <div className="mt-4 flex justify-between text-sm">
-                    <span className="text-black/40">{tournament.slots} slots</span>
-                    <button className="px-4 py-1 rounded-full border border-black/10 text-xs hover:bg-black/5 transition flex items-center gap-1">
-                      Register <FiChevronRight className="w-3 h-3" />
-                    </button>
-                  </div>
+                  <div className="text-sm font-light text-amber-600">{tournament.prize}</div>
                 </div>
-              );
-            })}
+                <div className="mt-4 flex justify-between text-sm">
+                  <span className="text-black/40">{tournament.slots} slots</span>
+                  <button className="px-4 py-1 rounded-full border border-black/10 text-xs hover:bg-black/5 transition flex items-center gap-1">
+                    Register <span>→</span>
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -569,7 +508,7 @@ export default function KaizenGaming() {
                   selectedPackage === key ? "bg-black text-white" : "bg-black/5 hover:bg-black/10"
                 }`}
               >
-                <FiPackage className="w-4 h-4" />
+                <span>📦</span>
                 {pkg.name}
               </button>
             ))}
@@ -580,13 +519,13 @@ export default function KaizenGaming() {
               <div>
                 <div className="text-xl font-light">{packages[selectedPackage as keyof typeof packages].name}</div>
                 <div className="text-sm text-black/40 flex items-center gap-1">
-                  <FiClock className="w-4 h-4" />
+                  <span>🕐</span>
                   {packages[selectedPackage as keyof typeof packages].duration}
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {packages[selectedPackage as keyof typeof packages].features.map((feature) => (
                     <span key={feature} className="px-3 py-1 rounded-full bg-white/50 text-xs flex items-center gap-1">
-                      <FiCheck className="w-3 h-3" />
+                      <span>✓</span>
                       {feature}
                     </span>
                   ))}
@@ -599,24 +538,24 @@ export default function KaizenGaming() {
           <form className="mt-6 grid gap-4">
             <div className="grid md:grid-cols-2 gap-4">
               <div className="relative">
-                <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30">👤</span>
                 <input type="text" placeholder="Full Name" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
               </div>
               <div className="relative">
-                <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30">✉️</span>
                 <input type="email" placeholder="Email" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
               </div>
             </div>
             <div className="relative">
-              <FiPhone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30">📱</span>
               <input type="tel" placeholder="Phone Number" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
             </div>
             <div className="relative">
-              <FiCalendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/30" />
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30">📅</span>
               <input type="date" className="w-full p-4 pl-12 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
             </div>
             <button type="submit" className="p-4 rounded-xl bg-black text-white hover:bg-black/80 transition flex items-center justify-center gap-2">
-              <FiSend className="w-5 h-5" />
+              <span>✈️</span>
               Secure Your Space
             </button>
           </form>
@@ -641,7 +580,7 @@ export default function KaizenGaming() {
             ].map((faq) => (
               <div key={faq.q} className="p-6 bg-white/50 rounded-2xl border border-black/5 hover:bg-white transition">
                 <h3 className="font-light flex items-center gap-2">
-                  <FiHelpCircle className="w-5 h-5 text-black/30" />
+                  <span>❓</span>
                   {faq.q}
                 </h3>
                 <p className="mt-1 text-sm text-black/40 pl-7">{faq.a}</p>
@@ -664,15 +603,15 @@ export default function KaizenGaming() {
               <p className="mt-4 text-black/50">Have questions? Were here to help.</p>
               <div className="mt-8 space-y-3 text-sm text-black/50">
                 <div className="flex items-center gap-3">
-                  <FiMail className="w-5 h-5 text-black/30" />
+                  <span>✉️</span>
                   hello@kaizen.gg
                 </div>
                 <div className="flex items-center gap-3">
-                  <FiPhone className="w-5 h-5 text-black/30" />
+                  <span>📱</span>
                   +1 (555) 123-4567
                 </div>
                 <div className="flex items-center gap-3">
-                  <FiMapPin className="w-5 h-5 text-black/30" />
+                  <span>📍</span>
                   123 Calm Street, Metropolis
                 </div>
               </div>
@@ -683,7 +622,7 @@ export default function KaizenGaming() {
                 <input type="email" placeholder="Email" className="p-3 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
                 <textarea placeholder="Message" rows={3} className="p-3 rounded-xl bg-white border border-black/10 focus:border-black/30 focus:outline-none" />
                 <button type="submit" className="p-3 rounded-xl bg-black text-white hover:bg-black/80 transition flex items-center justify-center gap-2">
-                  <FiSend className="w-4 h-4" />
+                  <span>✈️</span>
                   Send Message
                 </button>
               </form>
